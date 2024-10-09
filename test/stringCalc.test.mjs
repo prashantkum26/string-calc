@@ -32,4 +32,12 @@ describe('String Calculator', () => {
     it('should handle customized delimiters', () => {
         expect(add('//;\n1;2')).to.equal(3);
     });
+
+    it('should throw an error for negative numbers', () => {
+        expect(() => add('1,-2,3,-4')).to.throw('Negatives not allowed: -2, -4');
+    });
+    
+    it('should throw an error for negative numbers', () => {
+        expect(() => add('1,-2')).to.throw('Negatives not allowed: -2');
+    });
 });
