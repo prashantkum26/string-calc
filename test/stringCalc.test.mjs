@@ -40,4 +40,12 @@ describe('String Calculator', () => {
     it('should throw an error for negative numbers', () => {
         expect(() => add('1,-2')).to.throw('Negatives not allowed: -2');
     });
+
+    it('should handle delimiters can be of any length', () => {
+        expect(add('//[***]\n1***2***3')).to.equal(6);
+    });
+
+    it('should handle multiple delimiters with length longer than one char', () => {
+        expect(add('//[*][%]\n1*2%3')).to.equal(6);
+    });
 });
