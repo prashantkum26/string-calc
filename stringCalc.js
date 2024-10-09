@@ -13,22 +13,7 @@ const add = (stringsNums) => {
         throw new Error(`Negatives not allowed: ${negativeArr.join(", ")}`);        
     }
 
-    let result = 0;
-    for (let i = 0; i < numArray.length; i++) {
-        const val = numArray[i];
-        if (Number(val) && Number(val) <= 1000) {
-            result += Number(val)
-        }
-    }
-    return result;
+    return numArray.reduce((acc, curr) => acc + (Number(curr) > 1000 ? 0 : Number(curr)), 0);
 }
-// const a = add('1');
-// const a = add('1,2,3,4,5,6,7,8,9');
-// const a = add("1,2;5\n\n\nr4******6");
-// const a = add('1,-2,3,-4')
-// const a = add('10000\n8')
-// const a = add('//[***]\n1***2***3')
-// const a = add('//[*][%]\n1*2%3')
-// console.log(a)
 
 module.exports = { add };
