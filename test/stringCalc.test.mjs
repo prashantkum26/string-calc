@@ -5,4 +5,8 @@ describe('String Calculator', () => {
     it('should throw on non string input.', () => {
         expect(() => add([])).to.throw('Input must be a string.');
     });
+
+    it('should handle for empty string', () => {
+        expect(add("")).to.equal(0);
+    });
 });
